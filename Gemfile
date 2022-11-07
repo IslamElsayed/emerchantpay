@@ -70,6 +70,7 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
   gem "rspec"
+  gem "factory_bot"
 end
 
 gem "slim"
