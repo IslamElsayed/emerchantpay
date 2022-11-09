@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Merchant < User
-  enum :status, [:active, :inactive]
+  enum :status, %i[active inactive]
 end
