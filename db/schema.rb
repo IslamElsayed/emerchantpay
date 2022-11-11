@@ -12,7 +12,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_221_109_180_602) do
+ActiveRecord::Schema[7.0].define(version: 20_221_110_174_013) do
+  create_table 'transactions', force: :cascade do |t|
+    t.string 'type'
+    t.string 'uuid'
+    t.float 'amount'
+    t.integer 'status', default: 0
+    t.string 'customer_email'
+    t.string 'customer_phone'
+    t.integer 'merchant_id'
+    t.integer 'follow_transaction_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['merchant_id'], name: 'index_transactions_on_merchant_id'
+    t.index ['follow_transaction'], name: 'index_transactions_on_follow_transaction'
+    t.index ['type'], name: 'index_transactions_on_type'
+  end
+
   create_table 'users', force: :cascade do |t|
     t.string 'name'
     t.string 'description'

@@ -24,5 +24,6 @@ module Emerchantpay
       generate.test_framework :rspec
     end
     config.autoload_paths << "#{root}/app/models/users"
+    config.autoload_paths << "#{root}/app/models/transactions"
   end
 end
