@@ -1,0 +1,4 @@
+email,name,description,password,type
+user@email.com,User,description,123456,Merchant
+user1@email.com,User1,description,123456,Merchant
+admin1@email.com,Admin1,description,123456,Admin
