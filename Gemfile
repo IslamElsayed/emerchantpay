@@ -83,3 +83,9 @@ gem 'slim-rails'
 
 # authentication
 gem 'devise'
+
+# background jobs
+gem 'sidekiq'
+
+# jobs schedualer
+gem "clockwork"
