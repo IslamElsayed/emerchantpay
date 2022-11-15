@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-
   resources :transactions, only: [:index]
   devise_for :users
 
@@ -15,5 +14,5 @@ Rails.application.routes.draw do
     end
   end
 
-  root "transactions#index"
+  root 'transactions#index'
 end

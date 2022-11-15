@@ -24,8 +24,8 @@ ActiveRecord::Schema[7.0].define(version: 20_221_110_174_013) do
     t.integer 'follow_transaction_id'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
+    t.index '"follow_transaction"', name: 'index_transactions_on_follow_transaction'
     t.index ['merchant_id'], name: 'index_transactions_on_merchant_id'
-    t.index ['follow_transaction'], name: 'index_transactions_on_follow_transaction'
     t.index ['type'], name: 'index_transactions_on_type'
   end
 
