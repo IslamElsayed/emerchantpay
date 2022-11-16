@@ -6,5 +6,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  # validations
   validates :name, presence: true
+
+  %w[merchant admin].each do |user_type|
+    define_method("#{user_type}?") do
+      type == user_type.classify
+    end
+  end
 end

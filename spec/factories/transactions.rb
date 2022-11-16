@@ -6,6 +6,6 @@ FactoryBot.define do
     customer_email { Faker::Internet.email }
     customer_phone { Faker::PhoneNumber.cell_phone }
     amount { rand(10...1000) }
-    association :merchant, factory: [:user, :merchant]
+    association :merchant, factory: %i[user merchant]
   end
 end

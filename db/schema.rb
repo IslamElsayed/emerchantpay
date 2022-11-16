@@ -12,21 +12,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_221_110_174_013) do
+ActiveRecord::Schema[7.0].define(version: 20_221_116_123_314) do
   create_table 'transactions', force: :cascade do |t|
-    t.string 'type'
     t.string 'uuid'
     t.float 'amount'
     t.integer 'status', default: 0
     t.string 'customer_email'
     t.string 'customer_phone'
     t.integer 'merchant_id'
-    t.integer 'follow_transaction_id'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
-    t.index '"follow_transaction"', name: 'index_transactions_on_follow_transaction'
+    t.integer 'follow_transaction_id'
+    t.string 'type'
+    t.index ['follow_transaction_id'], name: 'index_transactions_on_follow_transaction_id'
     t.index ['merchant_id'], name: 'index_transactions_on_merchant_id'
-    t.index ['type'], name: 'index_transactions_on_type'
   end
 
   create_table 'users', force: :cascade do |t|
@@ -41,6 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 20_221_110_174_013) do
     t.datetime 'remember_created_at'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
+    t.string 'token'
     t.index ['email'], name: 'index_users_on_email', unique: true
     t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
   end

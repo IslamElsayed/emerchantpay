@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+Gemfile# frozen_string_literal: true
 
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
@@ -72,11 +72,11 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
   gem 'factory_bot_rails'
+  gem 'faker'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 5.0'
   gem 'webdrivers'
-  gem 'faker'
 end
 
 gem 'slim-rails'
@@ -88,4 +88,4 @@ gem 'devise'
 gem 'sidekiq'
 
 # jobs schedualer
-gem "clockwork"
+gem 'clockwork'
