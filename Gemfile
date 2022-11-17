@@ -1,4 +1,4 @@
-Gemfile# frozen_string_literal: true
+# frozen_string_literal: true
 
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
@@ -89,3 +89,7 @@ gem 'sidekiq'
 
 # jobs schedualer
 gem 'clockwork'
+
+gem 'mini_racer'
+
+gem 'bootstrap', '~> 5.2.2'

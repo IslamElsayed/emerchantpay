@@ -3,6 +3,4 @@ p style="color: green"
 h1 transactions
 #transactions
   - @transactions.each do |transaction|
-    = render transaction
-    p
-      = link_to "Show this transaction", transaction
+    = render 'transaction', transaction: transaction

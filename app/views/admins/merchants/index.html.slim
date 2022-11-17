@@ -1,8 +1,28 @@
 p style="color: green" = notice
-h1 merchants
-#merchants
-  - @merchants.each do |merchant|
-    = render merchant
-    p
-      = link_to "Show this merchant", merchant
-= link_to "New merchant", new_merchant_path
+h1 Merchants
+.row.flex-lg-nowrap
+  .col.mb-3
+    .e-panel.card
+      .card-body
+        .e-table
+          .table-responsive.table-lg.mt-3
+            table.table.table-bordered
+              thead
+                tr
+                  th
+                    | Name
+                  th.max-width
+                    | Description
+                  th.sortable
+                    | Email
+                  th
+                    | Status
+                  th
+                    | Total Transaction Sum
+                  th
+                    | Transactions
+                  th
+                    | Actions
+              tbody
+                - @merchants.each do |merchant|
+                  = render merchant
