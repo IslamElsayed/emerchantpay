@@ -12,9 +12,10 @@ RSpec.describe Api::V1::TransactionsController, type: :controller do
 
     context 'with valid params' do
       it 'returns http success' do
-        post :create,
-             params: { transaction: { customer_email: 'email@email.com', customer_phone: '123456789', uuid: 'uuid',
-                                      type: 'AuthorizeTransaction', amount: 100 } }
+        expect {
+          post :create,
+              params: { transaction: { customer_email: 'email@email.com', customer_phone: '123456789', uuid: 'uuid',
+                                      type: 'AuthorizeTransaction', amount: 100 } } }.to change { Transaction.count }.by(1)
         expect(response).to have_http_status(:success)
       end
     end

@@ -4,19 +4,19 @@ module Api
   module V1
     class TransactionsController < Api::V1::ApplicationController
       def create
-        transaction = current_user.transactions.new(transaction_params)
-        if transaction.save
-          render json: transaction, status: 201
+        transaction_form = Transactions::CreateForm.new(transaction_params.merge(merchant: current_user))
+
+        if transaction_form.save
+          render json: transaction_form.record, status: 201
         else
-          render json: transaction.errors, status: 422
+          render json: transaction_form.errors, status: 422
         end
       end
 
       private
 
       def transaction_params
-        params.require(:transaction).permit(:type, :uuid, :amount, :status, :customer_email, :customer_phone,
-                                            :follow_transaction_id)
+        params.require(:transaction).permit(:type, :uuid, :amount, :status, :customer_email, :customer_phone, :follow_transaction_id)
       end
     end
   end
