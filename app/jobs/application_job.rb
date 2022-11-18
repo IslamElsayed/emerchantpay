@@ -8,5 +8,5 @@ class ApplicationJob
   # discard_on ActiveJob::DeserializationError
   include Sidekiq::Worker
 
-  sidekiq_options queue: "default", retry: 10
+  sidekiq_options queue: 'default', retry: 10
 end
