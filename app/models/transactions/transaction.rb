@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Transaction < ApplicationRecord
-  # self.inheritance_column = nil
   enum status: %i[approved reversed refunded error]
 
   # associations
