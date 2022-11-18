@@ -1,0 +1,26 @@
+p style="color: green"
+  = notice
+h1 #{@merchant.name} Transactions
+
+.row.flex-lg-nowrap
+  .col.mb-3
+    .e-panel.card
+      .card-body
+        .e-table
+          .table-responsive.table-lg.mt-3
+            table.table.table-bordered
+              thead
+                tr
+                  th
+                    | Type
+                  th.max-width
+                    | Uuid
+                  th.sortable
+                    | Amount
+                  th
+                    | Customer Email
+                  th
+                    | Customer Phone
+              tbody
+                - @transactions.each do |transaction|
+                  = render 'transaction', transaction: transaction

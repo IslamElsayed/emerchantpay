@@ -6,7 +6,7 @@ FactoryBot.define do
     name { Faker::Name.name }
     password { Faker::Internet.password }
     trait :admin do
-      initialize_with { Merchant.new(attributes) }
+      initialize_with { Admin.new(attributes) }
 
       type { 'Admin' }
     end
