@@ -11,6 +11,9 @@ html
   body
     link[href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"]
     .container
-      | #{current_user.name}
-      = button_to "sign out", destroy_user_session_path, method: :delete
+      - if user_signed_in?
+        = link_to 'Home', root_path
+        br
+        | #{current_user.name}
+        = button_to "sign out", destroy_user_session_path, method: :delete, data: { turbo: false }, class: 'btn btn-link'
       = yield
