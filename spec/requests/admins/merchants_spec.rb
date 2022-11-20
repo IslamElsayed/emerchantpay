@@ -26,9 +26,9 @@ RSpec.describe 'Merchants', type: :request do
   describe 'PUT /update' do
     context 'with valid params' do
       it 'returns http redirect' do
-        expect {
+        expect do
           put "/merchants/#{merchant.id}", params: { merchant: { name: 'name' } }
-        }.to change{ merchant.reload.name }
+        end.to change { merchant.reload.name }
         expect(response).to have_http_status(:redirect)
       end
     end
@@ -43,9 +43,9 @@ RSpec.describe 'Merchants', type: :request do
 
   describe 'GET /destroy' do
     it 'returns http redirect' do
-      expect {
+      expect do
         delete "/merchants/#{merchant.id}"
-      }.to change { Merchant.count }.by(-1)
+      end.to change { Merchant.count }.by(-1)
       expect(response).to have_http_status(:redirect)
     end
   end

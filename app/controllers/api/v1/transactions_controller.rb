@@ -16,7 +16,8 @@ module Api
       private
 
       def transaction_params
-        params.require(:transaction).permit(:type, :uuid, :amount, :status, :customer_email, :customer_phone, :follow_transaction_id)
+        params.require(:transaction).permit(:type, :uuid, :amount, :status, :customer_email, :customer_phone,
+                                            :follow_transaction_id)
       end
     end
   end
